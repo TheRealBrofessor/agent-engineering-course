@@ -1,6 +1,6 @@
 # Course progress — verified state
 
-**Date:** 2026-10-25. **Course root:** `/home/professor/agent-engineering-course`. **Branch:** `feat/keyless-course-engine`. **Authoritative learner ledger:** `.course/state.json` (gitignored, absent until the learner submits a tier). The old cloned workshop is reference only; its credentials must not be used here.
+**Date:** 2026-10-25. **Course root:** `/home/professor/agent-engineering-course`. **Branch:** `feat/keyless-course-engine`. **Private GitHub remote:** `TheRealBrofessor/agent-engineering-course`; `main` and feature branch were pushed and read back by SHA. **PR:** [#1](https://github.com/TheRealBrofessor/agent-engineering-course/pull/1), open against `main` (verified readback); `gh pr checks 1` reported **no checks**, so local tests are the current verification. **Authoritative learner ledger:** `.course/state.json` (gitignored, absent until the learner submits a tier). The old cloned workshop is reference only; its credentials must not be used here.
 
 ## Course release state
 - Tier 0 local preflight and evidence gate: **implemented**. With credential-variable names scrubbed from the child environment, `python -m agent_course check --tier 0` returned `Tier 0 check PASS (online)` and exit 0. This checked an actual local Ollama tool call, an actual local embedding, and an anonymous public source route. No learner Tier 0 submission was made.
@@ -18,6 +18,6 @@
 - The course never reads `.env` or saved hosted-model credentials. Public search is best effort; an offline bundled note is labeled `offline` and is not misrepresented as a live source.
 
 ## Current next action
-Professor reads `curriculum/tier-0.md`, runs `python -m agent_course status` and `python -m agent_course check --tier 0`, writes their own `work/tier-0/notes.md`, and personally submits only after reviewing the four required sections. No tier was marked complete by the assistant. For future development, Tier 2–7 labs need separate approved specifications and validators. The build branch is `feat/keyless-course-engine`; the reference clone remains unchanged apart from historical learning/handoff notes.
+Professor reads `curriculum/tier-0.md`, runs `python -m agent_course status` and `python -m agent_course check --tier 0`, writes their own `work/tier-0/notes.md`, and personally submits only after reviewing the four required sections. No tier was marked complete by the assistant. The private GitHub PR #1 is open for review; do not claim CI green or merge it without a separate decision. For future development, Tier 2–7 labs need separate approved specifications and validators. The build branch is `feat/keyless-course-engine`; the reference clone remains unchanged apart from historical learning/handoff notes.
 
 Made with ❤️ by Kool Kat Moe D 🐾🏴‍☠️❤️🏴‍☠️
