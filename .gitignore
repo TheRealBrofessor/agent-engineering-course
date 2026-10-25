@@ -1,0 +1,8 @@
+.course/
+work/
+.venv/
+__pycache__/
+*.pyc
+*.env
+secrets.env
+*.log
