@@ -2,6 +2,8 @@ import os
 import tempfile
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
+from unittest.mock import patch
 
 from agent_course.tier1 import check_tier_one, validate_report, safe_child_env
 
@@ -75,6 +77,13 @@ class TierOneRunnerTests(unittest.TestCase):
         self.assertFalse(result.ok)
         self.assertIn("timeout", " ".join(result.issues).lower())
         self.assertFalse((self.root / ".course" / "state.json").exists())
+
+    def test_malformed_child_payload_fails_without_crashing(self):
+        (self.student_dir / "report_agent.py").write_text("def build_report(topic, search, model):\n    return {}\n")
+        with patch("agent_course.tier1.subprocess.run", return_value=SimpleNamespace(returncode=0, stdout="null")):
+            result = check_tier_one(self.root)
+        self.assertFalse(result.ok)
+        self.assertIn("malformed", " ".join(result.issues).lower())
 
     def test_learner_code_cannot_see_parent_secret_env(self):
         os.environ["COURSE_TEST_SECRET_KEY"] = "secret-value-not-for-output"

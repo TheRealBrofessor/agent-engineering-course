@@ -85,6 +85,8 @@ def check_tier_one(root: Path, *, timeout: float = 15) -> CheckResult:
         payload = json.loads(process.stdout)
     except (json.JSONDecodeError, TypeError):
         return CheckResult(False, "", ("Tier 1 runner returned invalid JSON",))
+    if not isinstance(payload, dict):
+        return CheckResult(False, "", ("Tier 1 runner returned malformed payload",))
     if process.returncode != 0:
         return CheckResult(False, "", (f"Tier 1 learner run failed ({payload.get('error', 'unknown error')})",))
     scenarios = payload.get("scenarios")
