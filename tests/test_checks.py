@@ -89,6 +89,12 @@ class TierZeroChecksTests(unittest.TestCase):
         self.note.write_text(self.note.read_text().replace("CPU limits and source failure.", "   "))
         self.assertFalse(notes_ok(0, self.note)[0])
 
+    def test_tier_one_notes_require_live_run_failure_analysis_and_reflection(self):
+        self.note.write_text("# Live run\nLocal test.\n# Failure analysis\nSources missing.\n")
+        self.assertFalse(notes_ok(1, self.note)[0])
+        self.note.write_text(self.note.read_text() + "# Reflection\nI would improve citation checks.\n")
+        self.assertTrue(notes_ok(1, self.note)[0])
+
     def test_future_tier_validator_fails_closed(self):
         result = run_check(2, self.root)
         self.assertFalse(result.ok)

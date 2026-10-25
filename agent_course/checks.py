@@ -80,18 +80,22 @@ def check_tier_zero(root: Path, *, post=None, search=None) -> CheckResult:
 
 
 def notes_ok(tier: int, path: Path) -> tuple[bool, str]:
-    if tier != 0:
+    required = {
+        0: ("Concepts", "Local observations", "Source route", "Limits"),
+        1: ("Live run", "Failure analysis", "Reflection"),
+    }.get(tier)
+    if required is None:
         return False, f"Tier {tier} evidence validator unavailable"
     try:
         text = path.read_text(encoding="utf-8")
     except OSError:
-        return False, "Cannot read Tier 0 notes"
+        return False, f"Cannot read Tier {tier} notes"
     headings = list(re.finditer(r"(?m)^#{1,6}\s+(.+?)\s*$", text))
     sections = {}
     for index, match in enumerate(headings):
         end = headings[index + 1].start() if index + 1 < len(headings) else len(text)
         sections[match.group(1).strip().casefold()] = text[match.end():end].strip()
-    for title in ("Concepts", "Local observations", "Source route", "Limits"):
+    for title in required:
         if not sections.get(title.casefold()):
             return False, f"Missing or empty {title} section"
     return True, ""
@@ -100,4 +104,7 @@ def notes_ok(tier: int, path: Path) -> tuple[bool, str]:
 def run_check(tier: int, root: Path) -> CheckResult:
     if tier == 0:
         return check_tier_zero(root)
+    if tier == 1:
+        from .tier1 import check_tier_one
+        return check_tier_one(root)
     return CheckResult(False, "", (f"Tier {tier} validator unavailable",))
