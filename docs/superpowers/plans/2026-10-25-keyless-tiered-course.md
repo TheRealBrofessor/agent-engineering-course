@@ -194,7 +194,7 @@ def test_catalog_order_and_lessons_exist(self):
 ```
 
 - [ ] **Step 2: Run `python -m unittest discover -s tests -p 'test_curriculum.py' -v`; verify RED from missing lessons.**
-- [ ] **Step 3: Author concise original Tier 0–7 lessons/outcomes, explicit rubrics, readiness labels, and no-credential setup in README.** Tier 0 notes are prompts only; do not prefill work files. Tier 2–7 are roadmap-only until their graders ship; no fake PASS state.
+- [ ] **Step 3: Author concise original Tier 0–7 lessons/outcomes, explicit rubrics, readiness labels, and no-credential setup in README.** Tier 0 notes are prompts only; do not prefill work files. Tier 2 is Agentic RAG (retrieval decisions, grounded sources, no-answer); Tier 3 is Evaluation (held-out set and two measured failures); Tier 4 is Customization (baseline-vs-skill/tool comparison and command approval); Tier 5 is Deep Agents (bounded delegation and denied sandbox action); Tier 6 is Safety (policy positive/negative plus injection regression); Tier 7 is Harnesses/Skills (four bounded tools, context cost, portable skill). Tier 2–7 are roadmap-only until their graders ship; no fake PASS state.
 
 ```markdown
 # Tier 2 — Agentic RAG (roadmap only)

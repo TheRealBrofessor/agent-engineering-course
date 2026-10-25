@@ -1,7 +1,7 @@
 # Agent Engineering Course — design
 
 ## Purpose and ownership
-This is Professor's **original** agent-engineering course. The previously cloned NVIDIA workshop is topic inspiration only, not the product or a runtime dependency. No lessons, notebooks, answer keys, branded text, or saved credentials are copied into this project. Use `/home/professor/agent-engineering-course` as the new course root.
+This is Professor's **original** agent-engineering course. The previously cloned NVIDIA workshop is topic inspiration only, not the product or a runtime dependency. No lessons, notebooks, answer keys, branded text, or saved credentials are copied into this project. The course requires **zero API keys** for model inference or search. Use `/home/professor/agent-engineering-course` as the new course root.
 
 The course teaches one cumulative assistant project through ordered tiers. **Tier 0 must pass before Tier 1 unlocks; Tier n must pass before Tier n+1 unlocks.** A tier's availability is not evidence that its learner exercise has been done. The assistant builds teaching materials, validators, and infrastructure; Professor writes and interprets exercise work.
 
