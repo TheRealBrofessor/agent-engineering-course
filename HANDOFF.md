@@ -3,7 +3,7 @@
 **Read first:** `/home/professor/agent-engineering-course/README.md`, `PROGRESS.md`, the design and plan in `docs/superpowers/`, then the active lesson. This is Professor's original course—not the separate NVIDIA reference clone. Stay on `feat/keyless-course-engine` unless Professor chooses integration. The private GitHub remote is `TheRealBrofessor/agent-engineering-course`; PR #1 is open against `main` and currently has no CI checks. Verify its state before reporting anything new; do not merge without approval. Never read or reuse the old clone's `secrets.env`.
 
 ## Non-negotiable rules
-- No API keys for model inference, embeddings, or public search; local Ollama and public anonymous search with clearly labeled offline corpus fallback.
+- Learners configure their own chat and embedding providers/models through environment variables; Ollama can run without a key, while hosted providers use learner-owned credentials. Public search has a clearly labeled offline corpus fallback.
 - Tier 0→Tier 7 are strictly sequential. A gate must run and learner evidence must be personally attested; no skipped tiers or assistant-written exercise answers.
 - `status` is read-only. Tier 2–7 docs are roadmap-only and validators fail closed. Do not claim these labs completed.
 - Keep `work/` and `.course/` gitignored; never paste credentials, private tokens, or learner secrets into notes or chat.

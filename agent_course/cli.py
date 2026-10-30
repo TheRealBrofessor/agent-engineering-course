@@ -14,7 +14,7 @@ DEFAULT_ROOT = Path(__file__).resolve().parent.parent
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Original keyless agent-engineering course")
+    parser = argparse.ArgumentParser(description="Original configurable-provider agent-engineering course")
     parser.add_argument("--root", type=Path, default=DEFAULT_ROOT, help="course root (use a disposable root for tests)")
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("status", help="show active and locked tiers without running exercises")

@@ -1,1 +1,1 @@
-"""Keyless, sequential agent-engineering course."""
+"""Configurable-provider, sequential agent-engineering course."""

@@ -16,7 +16,7 @@ def build_report(topic: str, search, model) -> dict:
     ...
 ```
 
-`search(query)` returns a list of `{"title": str, "url": str, "snippet": str}` records. `model(prompt)` returns plain text. Both are injected by the checker; do not require an API key or import a hosted SDK. Your result must be a dict with:
+`search(query)` returns a list of `{"title": str, "url": str, "snippet": str}` records. `model(prompt)` returns plain text. Both are injected by the checker; do not require credentials or import a hosted SDK. Your result must be a dict with:
 
 - `status`: `"ok"` when it uses sources, or `"insufficient_sources"` when it cannot.
 - `outline`: list of nonempty headings.
@@ -29,7 +29,7 @@ When search returns no records, use `status="insufficient_sources"` with empty `
 1. In your own words, write a small flow sketch for search → outline → sections → provenance. Identify which steps require the model and which can be deterministic.
 2. Implement the function in your own file. Keep source URLs as data from `search`; never ask the model to invent URLs.
 3. Run `python -m agent_course check --tier 1` after Tier 0 unlocks. Inspect failed checks and revise your code. The checker does not write a completion record.
-4. Run your agent once with your own adapters to **local Ollama** (`qwen3:4b-instruct`) and a public no-key search from `agent_course.sources`, or choose an explicitly labeled local-corpus run. A public search sends its query to a public site; use a non-sensitive practice topic. Do not call a hosted endpoint or reuse keys from the reference workshop.
+4. Run your agent once with your configured model adapters and a public search from `agent_course.sources`, or choose an explicitly labeled local-corpus run. A public search sends its query to a public site; use a non-sensitive practice topic. Never reuse keys from the reference workshop.
 5. Write `work/tier-1/notes.md` with nonempty headings `# Live run`, `# Failure analysis`, and `# Reflection`. Describe observed outputs, source URLs or `course://` IDs, and one failure you corrected. Write your own analysis, not an assistant's answer.
 6. After reviewing both test results and your notes, submit your own work: `python -m agent_course submit --tier 1 --evidence work/tier-1/notes.md --attest`. Tier 2 remains locked if any check fails.
 

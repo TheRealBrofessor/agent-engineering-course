@@ -7,7 +7,7 @@ An agent has a model that predicts, tools that observe or act, state/memory that
 
 A basic loop is: define a goal → choose a bounded tool → inspect results → decide whether to continue or stop → cite evidence or abstain. In your own notes, explain when the model should call a tool, what state it needs, and what happens when the tool has no usable result.
 
-## Verify the local route
+## Verify your model route
 Run from the project root:
 
 ```bash
@@ -15,13 +15,13 @@ python -m agent_course status
 python -m agent_course check --tier 0
 ```
 
-The check calls the **local** Ollama tool-calling model and local embedding model, then searches an anonymous public source with a static course topic. If public search fails, it uses a bundled teaching note and labels the result `offline`; it must not claim it searched the live web. A source outage is not a model failure; a model outage fails the gate. No API key is requested or read.
+The check calls the chat and embedding models you configured through environment variables, then searches an anonymous public source with a static course topic. It supports Ollama, OpenAI-compatible endpoints including OpenRouter, Anthropic, and Gemini. Chat and embedding providers can differ. If public search fails, it uses a bundled teaching note and labels the result `offline`; it must not claim it searched the live web. A source outage is not a model failure; a model outage fails the gate. The course never reads `.env` files or stores credentials.
 
 ## Your exercise
 Create `work/tier-0/notes.md` yourself. Use exactly these headings with your own substantive explanations, not copied output:
 
 - `# Concepts`: distinguish model, tools, memory, routing, and a tool-call observation.
-- `# Local observations`: describe what `check --tier 0` actually returned, including the local-model behavior.
+- `# Local observations`: describe what `check --tier 0` actually returned, including the configured provider and model behavior.
 - `# Source route`: say whether the result was `online` or `offline`; if offline, explain what the bundled note can and cannot support.
 - `# Limits`: identify one hallucination or source-quality risk and how you would detect it.
 

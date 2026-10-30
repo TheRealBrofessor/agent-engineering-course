@@ -9,6 +9,6 @@ A retrieval assistant should decide **whether** to retrieve, select relevant loc
 An index over an intentionally small, non-sensitive help-desk corpus; a retrieval tool returning source IDs/snippets; an answer function that cites returned IDs; an abstention when no relevant passage exists. The future lab will include a fixture for a known answer, an unrelated query, and a prompt-injection-bearing document.
 
 ## Gate target
-Before Tier 3 unlocks, the learner must show correct retrieval decisions, grounded source IDs, a no-answer case, tests against unseen questions, and a written explanation of one retrieved false positive. The grader is **not shipped** in this release; adding notes or code alone cannot promote Tier 2. No hosted embeddings or API keys are planned.
+Before Tier 3 unlocks, the learner must show correct retrieval decisions, grounded source IDs, a no-answer case, tests against unseen questions, and a written explanation of one retrieved false positive. The grader is **not shipped** in this release; adding notes or code alone cannot promote Tier 2. The embedding provider and model must be recorded for reproducibility.
 
 Made with ❤️ by Kool Kat Moe D 🐾🏴‍☠️❤️🏴‍☠️

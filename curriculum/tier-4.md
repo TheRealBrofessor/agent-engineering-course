@@ -9,6 +9,6 @@ Specialize the cumulative agent by changing the cheapest, most inspectable layer
 A domain skill for a bounded CLI workflow, a baseline-vs-customized scorecard, synthetic tasks with verifiable outcomes, and an approval step before executing any state-changing command. Keep generated data and reward rules auditable.
 
 ## Gate target
-Show a reproducible improvement or an honest negative result, explicit command-approval behavior, and a failure analysis from the held-out set. The Tier 4 validator is **not shipped**; this roadmap neither trains a model nor claims a GPU result. Keyless local inference remains the default.
+Show a reproducible improvement or an honest negative result, explicit command-approval behavior, and a failure analysis from the held-out set. The Tier 4 validator is **not shipped**; this roadmap neither trains a model nor claims a GPU result. Use the provider configuration from Tier 0.
 
 Made with ❤️ by Kool Kat Moe D 🐾🏴‍☠️❤️🏴‍☠️

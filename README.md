@@ -1,6 +1,6 @@
 # Agent Engineering Course
 
-Professor's **original, sequential agent-building course**. It requires **zero API keys** for local model inference, embeddings, or research-source practice. The separate NVIDIA workshop clone is background reference only; this project neither imports it nor reads its saved credentials.
+Professor's **original, sequential agent-building course**. Each learner supplies their own model provider and model names. Zero API keys are required when using Ollama; hosted providers use the learner's own credentials. The separate NVIDIA workshop clone is background reference only; this project neither imports it nor reads its saved credentials.
 
 ## Progression
 
@@ -21,7 +21,19 @@ Only the active tier can be checked or submitted; later tiers remain **locked**.
 
 ## Start (Tier 0)
 
-Prerequisites: Python 3.12+ and local Ollama with `qwen3:4b-instruct` and `nomic-embed-text:latest` available. The preflight checks a real local tool call and embedding. Search tries anonymous public websites, then a clearly marked bundled offline note if the websites fail. Public search sends a **static, non-sensitive course topic**, never your private notes. Nothing requires a credential or `.env` file.
+Prerequisites: Python 3.12+ and a chat model with tool calling plus an embedding model exposed by your chosen provider. The preflight checks a real tool call and embedding. Search tries anonymous public websites, then a clearly marked bundled offline note if the websites fail. Public search sends a **static, non-sensitive course topic**, never your private notes. Credentials are supplied through environment variables; the course never reads `.env` files.
+
+Configure the models before checking Tier 0. `openrouter` and `openai-compatible` use OpenAI-style APIs; Anthropic and Gemini use their native request formats. Chat and embeddings may use different providers:
+
+```bash
+export AGENT_COURSE_CHAT_PROVIDER=openrouter
+export AGENT_COURSE_CHAT_MODEL=your-provider/model-id
+export AGENT_COURSE_EMBED_PROVIDER=openai-compatible
+export AGENT_COURSE_EMBED_MODEL=your-embedding-model
+export AGENT_COURSE_API_KEY=your-key
+```
+
+Supported providers are `ollama`, `openai`, `openai-compatible`, `openrouter`, `anthropic`, and `gemini`/`google`. Use `AGENT_COURSE_CHAT_BASE_URL`, `AGENT_COURSE_EMBED_BASE_URL`, or `AGENT_COURSE_BASE_URL` for compatible gateways and self-hosted endpoints. Ollama requires no key; hosted providers generally do.
 
 From this folder:
 
@@ -38,7 +50,7 @@ python -m agent_course submit --tier 0 --evidence work/tier-0/notes.md --attest
 python -m agent_course status
 ```
 
-Tier 1 unlocks only when that submit passes. Read its lesson when active. `check` never records completion; `submit` reruns validation before it writes a mode-0600 ledger with evidence hash. If Ollama is unavailable, start the local service and verify the two named models—do not solve the failure by adding an API key. Offline source fallback does not replace the local model requirement.
+Tier 1 unlocks only when that submit passes. Read its lesson when active. `check` never records completion; `submit` reruns validation before it writes a mode-0600 ledger with evidence hash. If a provider is unavailable, verify its endpoint, model IDs, and environment configuration. Offline source fallback does not replace the model requirement.
 
 ## Safety and limits
 

@@ -1,5 +1,6 @@
 import tempfile
 import unittest
+import os
 from pathlib import Path
 from unittest.mock import patch
 
@@ -12,6 +13,14 @@ class TierZeroChecksTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
         self.note = self.root / "notes.md"
+        self.env = {
+            "AGENT_COURSE_PROVIDER": "ollama",
+            "AGENT_COURSE_CHAT_MODEL": "test-chat",
+            "AGENT_COURSE_EMBED_MODEL": "test-embed",
+        }
+        self.env_patch = patch.dict(os.environ, self.env, clear=False)
+        self.env_patch.start()
+        self.addCleanup(self.env_patch.stop)
 
     @staticmethod
     def responses(url, payload):

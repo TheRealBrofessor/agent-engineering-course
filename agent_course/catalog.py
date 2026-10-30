@@ -1,7 +1,7 @@
 """Original curriculum order; lesson files are not learner submissions."""
 
 TIERS = (
-    {"id": 0, "title": "Local foundations", "lesson": "curriculum/tier-0.md", "implemented": True},
+    {"id": 0, "title": "Model-provider foundations", "lesson": "curriculum/tier-0.md", "implemented": True},
     {"id": 1, "title": "Build a research agent", "lesson": "curriculum/tier-1.md", "implemented": True},
     {"id": 2, "title": "Agentic RAG", "lesson": "curriculum/tier-2.md", "implemented": False},
     {"id": 3, "title": "Evaluation", "lesson": "curriculum/tier-3.md", "implemented": False},

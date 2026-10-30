@@ -9,6 +9,6 @@ A plausible answer is not a measured answer. Build a held-out set for the Tier 2
 A repeatable evaluation script, a versioned question set, baseline results, and a change that improves one metric without hiding regressions. Report denominators and failure cases instead of one flattering aggregate number.
 
 ## Gate target
-Demonstrate a held-out evaluation run, explain at least two measured failures, and show a before/after comparison with the same questions. The Tier 3 validator is **not shipped** in this release; no rubric score or NVIDIA-specific hosted evaluation is claimed. The later lab must stay keyless.
+Demonstrate a held-out evaluation run, explain at least two measured failures, and show a before/after comparison with the same questions. The Tier 3 validator is **not shipped** in this release; no rubric score or NVIDIA-specific hosted evaluation is claimed. Keep provider and model configuration explicit.
 
 Made with ❤️ by Kool Kat Moe D 🐾🏴‍☠️❤️🏴‍☠️
