@@ -1,14 +1,11 @@
-# Tier 5 — Deep agents
+# Tier 5 — Deep agents (runnable)
 
-**Status: roadmap only; validator unavailable.** Prerequisite: Tier 4 gate passed. Promotion remains closed.
+**Gate:** the active-tier validator, learner evidence, and explicit attestation are required.
 
-## Concept and cumulative project
-Turn a single-loop agent into a bounded multi-step worker: explicit plan, delegated subtask, file-backed notes, and a stop condition. Delegation should reduce complexity, not multiply unverified claims. Count steps, tool calls, and context use; test an aborted run and a resumption from saved state.
+Create `work/tier-5/deep_agent.py` with `run(task, budget)`. Produce a bounded trace containing `plan`, `delegate`, and `memory_write`; use the supplied file-backed memory path, honor step/tool budgets, and deny the sandbox action. A process timeout is containment, not a security sandbox.
 
-## Planned learner artifact
-A small coordinator with one specialist worker, a durable task log, a per-task budget, and an isolated runner for code tools. Local container isolation is an option only after its actual policies are verified; a process boundary alone is not a sandbox. Keep the local model on loopback.
+Evidence headings: `Plan and delegation`, `Memory and budgets`, `Denied action`.
 
-## Gate target
-Show a trace of bounded planning and delegation, verify that a disallowed sandbox action is denied, and recover from a forced interruption without silently repeating a consequential action. The Tier 5 lab/validator is **not shipped**; no isolation guarantee is claimed yet.
+This replaces the old roadmap only / validator unavailable placeholder; missing learner artifacts still fail closed.
 
 Made with ❤️ by Kool Kat Moe D 🐾🏴‍☠️❤️🏴‍☠️

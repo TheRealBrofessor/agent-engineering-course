@@ -1,14 +1,11 @@
-# Tier 7 — Harnesses and skills
+# Tier 7 — Harnesses and skills (runnable)
 
-**Status: roadmap only; validator unavailable.** Prerequisite: Tier 6 gate passed. Promotion remains closed.
+**Gate:** the active-tier validator, learner evidence, and explicit attestation are required.
 
-## Concept and cumulative project
-The model predicts; the harness manages memory, tool dispatch, skills, context budgets, and action boundaries. Build a small local harness with four bounded tools and explicit execution traces. Measure prompt size with eager skill text against lazy loading on the same tasks; avoid declaring quality improvement from token counts alone.
+Create `work/tier-7/harness.py` with `run(task, harnesses=(...))`. Return `tool_count: 4`, `bounded: true`, lower `lazy_tokens` than `eager_tokens`, and `portable: true` after running the same skill under both fixture harnesses. Keep tools bounded and the skill free of private state.
 
-## Planned learner artifact
-A keyless harness, a portable skill with clear prerequisites and tests, a context-cost table, and a capability/governance record for the skill. Verify a second harness can use the skill without copying private state. GPU acceleration is optional and must never be claimed on a CPU-only run.
+Evidence headings: `Tools and context cost`, `Portable skill`, `Governance and limits`.
 
-## Gate target
-Demonstrate four bounded tools, an eager-vs-lazy measurement, one skill running under two harnesses, and an honest security review of that skill. The Tier 7 validator is **not shipped**; no NVIDIA-verified signature or GPU result is claimed.
+This replaces the old roadmap only / validator unavailable placeholder; missing learner artifacts still fail closed.
 
 Made with ❤️ by Kool Kat Moe D 🐾🏴‍☠️❤️🏴‍☠️

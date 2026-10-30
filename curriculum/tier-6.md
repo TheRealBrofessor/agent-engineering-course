@@ -1,14 +1,11 @@
-# Tier 6 — Agent safety
+# Tier 6 — Agent safety (runnable)
 
-**Status: roadmap only; validator unavailable.** Prerequisite: Tier 5 gate passed. Promotion remains closed.
+**Gate:** the active-tier validator, learner evidence, and explicit attestation are required.
 
-## Concept and cumulative project
-Autonomy needs boundaries outside the model's own promises. Threat-model tool calls, private files, network egress, source prompt injection, and approval bypass. Compare prompt-level instructions with actual filesystem and process policies. Test allowed and denied actions under the same policy. Red-team probes must target only the local lab, with no credentials or unrelated hosts.
+Create `work/tier-6/policy.py` with `authorize(action)`. The fixture requires one legitimate allowed action, one denied private write, and rejection of an injection string that asks to ignore policy. Test enforcement rather than trusting prompt instructions, and record residual risk.
 
-## Planned learner artifact
-A minimal access policy, local negative/positive test pair, a prompt-injection fixture, a regression suite, and a report distinguishing observed enforcement from intended enforcement. Optional Linux isolation features are verified on the actual host before claiming they work.
+Evidence headings: `Threat model`, `Positive and negative tests`, `Injection regression`.
 
-## Gate target
-Demonstrate one legitimate allowed action, one denied action, and a failed injection attempt while preserving relevant logs and noting residual risk. The Tier 6 validator is **not shipped**; no kernel-level safety claim or hosted privacy router is implied.
+This replaces the old roadmap only / validator unavailable placeholder; missing learner artifacts still fail closed.
 
 Made with ❤️ by Kool Kat Moe D 🐾🏴‍☠️❤️🏴‍☠️

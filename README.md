@@ -10,12 +10,12 @@ Only the active tier can be checked or submitted; later tiers remain **locked**.
 |---|---|---|
 | 0 | Local foundations: model, tools, memory, routing | Runnable preflight and notes gate |
 | 1 | Build a sourced research agent | Runnable learner lab and fixture grader |
-| 2 | Agentic RAG | Roadmap only; validator unavailable |
-| 3 | Evaluation | Roadmap only; validator unavailable |
-| 4 | Customization | Roadmap only; validator unavailable |
-| 5 | Deep agents | Roadmap only; validator unavailable |
-| 6 | Safety | Roadmap only; validator unavailable |
-| 7 | Harnesses and skills | Roadmap only; validator unavailable |
+| 2 | Agentic RAG | Runnable fixture gate |
+| 3 | Evaluation | Runnable fixture gate |
+| 4 | Customization | Runnable fixture gate |
+| 5 | Deep agents | Runnable fixture gate |
+| 6 | Safety | Runnable fixture gate |
+| 7 | Harnesses and skills | Runnable fixture gate |
 
 **Roadmap only means promotion fails closed**, even if you write a file for that tier. Future labs are separate builds, not falsely marked done.
 
@@ -54,7 +54,7 @@ Tier 1 unlocks only when that submit passes. Read its lesson when active. `check
 
 ## Safety and limits
 
-The Tier 1 grader executes **your own** Python file in a short-lived child with a timeout and minimal environment; it is not a hard sandbox against intentionally hostile code. Do not run an untrusted downloaded exercise as your learner file. Public search is best-effort and may fail or be rate limited; the course labels the offline path honestly. The model can still hallucinate; automatic structural checks do not verify every factual sentence. No Tier 2–7 lab completion is claimed.
+The Tier 1 grader executes **your own** Python file in a short-lived child with a timeout and minimal environment; it is not a hard sandbox against intentionally hostile code. Do not run an untrusted downloaded exercise as your learner file. Public search is best-effort and may fail or be rate limited; the course labels the offline path honestly. The model can still hallucinate; automatic structural checks do not verify every factual sentence. Tiers 2–7 are runnable local labs; no learner tier completion is claimed.
 
 Implementation evidence and a new-session prompt live in `PROGRESS.md` and `HANDOFF.md`. The [design](docs/superpowers/specs/2026-10-25-keyless-tiered-course-design.md) and [plan](docs/superpowers/plans/2026-10-25-keyless-tiered-course.md) explain the current scope.
 

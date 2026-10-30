@@ -101,6 +101,12 @@ def notes_ok(tier: int, path: Path) -> tuple[bool, str]:
     required = {
         0: ("Concepts", "Local observations", "Source route", "Limits"),
         1: ("Live run", "Failure analysis", "Reflection"),
+        2: ("Retrieval decisions", "Grounding evidence", "No-answer case"),
+        3: ("Held-out set", "Metrics", "Failure analysis"),
+        4: ("Baseline and customization", "Approval evidence", "Reflection"),
+        5: ("Plan and delegation", "Memory and budgets", "Denied action"),
+        6: ("Threat model", "Positive and negative tests", "Injection regression"),
+        7: ("Tools and context cost", "Portable skill", "Governance and limits"),
     }.get(tier)
     if required is None:
         return False, f"Tier {tier} evidence validator unavailable"
@@ -125,4 +131,13 @@ def run_check(tier: int, root: Path) -> CheckResult:
     if tier == 1:
         from .tier1 import check_tier_one
         return check_tier_one(root)
-    return CheckResult(False, "", (f"Tier {tier} validator unavailable",))
+    if tier in range(2, 8):
+        from .advanced import (
+            check_tier_two, check_tier_three, check_tier_four, check_tier_five,
+            check_tier_six, check_tier_seven,
+        )
+        return {
+            2: check_tier_two, 3: check_tier_three, 4: check_tier_four,
+            5: check_tier_five, 6: check_tier_six, 7: check_tier_seven,
+        }[tier](root)
+    return CheckResult(False, "", (f"Unknown tier {tier}",))
